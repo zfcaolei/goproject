@@ -51,7 +51,7 @@ func main() {
 	fmt.Println(s3)
 
 	var tes34 Teststr
-	t222 := tes34.test2("3232")
+	t222 := tes34.test2("323211111111111")
 	fmt.Println(t222)
 
 }
