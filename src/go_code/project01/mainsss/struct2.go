@@ -68,6 +68,6 @@ func (p Person)test()string  {
 }
 
 func (t Teststr)test2(str string)string  {
-	t.Name = "ccccccc"
+	t.Name = "cccccccccccccc"
 	return  t.Name
 }
