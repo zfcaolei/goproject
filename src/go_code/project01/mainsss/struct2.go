@@ -7,12 +7,7 @@ import (
 
 type Person struct {
 	Name string `json:"name"`
-	Age  int8
-}
-
-type Teststr struct {
-	Name string
-	Age  int8
+	Age  int
 }
 
 func main() {
@@ -50,9 +45,14 @@ func main() {
 	s3 := t1.test()
 	fmt.Println(s3)
 
-	var tes34 Teststr
-	t222 := tes34.test2("323211111111111")
-	fmt.Println(t222)
+	s4 := t0.jisuan()
+	fmt.Println(s4)
+
+	//使用String方法自动调用
+	str := Person{
+		"dfsf", 11,
+	}
+	fmt.Println(&str)
 
 }
 
@@ -61,7 +61,16 @@ func (p Person) test() string {
 	return p.Name
 }
 
-func (t Teststr) test2(str string) string {
-	t.Name = "cccccccccccccc22222223333"
-	return t.Name
+func (p Person) jisuan() int {
+	res := 0
+
+	for i := 0; i <= 100; i++ {
+		res += 100
+	}
+	return res
+}
+
+func (p Person) String() string {
+	str := fmt.Sprintf("Name=[%v] Age=[%v]", p.Name, p.Age)
+	return str
 }

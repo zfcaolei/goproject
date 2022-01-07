@@ -2,18 +2,20 @@ package main
 
 import "fmt"
 
-func main()  {
-
-	var t1 = [3]int{11,22,33}
-	var s1 = t1[:]
-	s1[1] = 11111111111111
-
-	fmt.Println(s1)
-	fmt.Println(t1)
-
+type Peopel struct {
+	Age int
 }
 
-func test(m []int)  {
-	m[1] = 22222222222222
+func main() {
+
+	var peo Peopel
+	peo.Age = 20
+	res, res2 := peo.PeopleTest(10)
+	fmt.Println(res, res2)
 }
 
+func (p Peopel) PeopleTest(a int) (int, int) {
+	count := a * p.Age
+	sff := a + p.Age
+	return count, sff
+}
