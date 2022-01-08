@@ -45,6 +45,13 @@ func main() {
 	smallstudent.Student.SetScore(32)
 	smallstudent.Student.Show()
 
+	fmt.Println()
+	var smallstudent2 = SmallStudent{Student{"mark", 20, 85.5}}
+	smallstudent2.test()
+	smallstudent2.Student.SetScore(32)
+	smallstudent2.Student.Show()
+
+	fmt.Println()
 	var binstudent BigStudent
 	binstudent.Name = "大中本"
 	binstudent.Age = 32
