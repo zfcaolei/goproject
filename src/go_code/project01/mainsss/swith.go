@@ -17,7 +17,6 @@ func main() {
 	//
 	//}
 
-
 	var n1 int16 = 10
 	//var n2 int16 = 20
 
@@ -42,17 +41,15 @@ func main() {
 	//	fmt.Println("--***---",n1)
 	//}
 
-
 	//switch 的穿透 fallthrougth
 	switch n1 {
 	case 10:
-		fmt.Println("---10--",n1)
+		fmt.Println("---10-----------", n1)
 		fallthrough
 	case 20:
-		fmt.Println("---20--",n1)
+		fmt.Println("---20--------------", n1)
 	default:
-		fmt.Println("--***---",n1)
+		fmt.Println("--***---", n1)
 	}
-
 
 }

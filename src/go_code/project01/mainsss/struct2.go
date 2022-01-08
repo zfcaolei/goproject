@@ -20,7 +20,11 @@ func main() {
 
 	//方式2
 	t1 := Person{"曹磊", 20}
+	t11 := Person{Name: "曹磊", Age: 20}
+	var t111 = Person{"sd", 23}
 	fmt.Println(t1)
+	fmt.Println(t11)
+	fmt.Println(t111)
 
 	//方式3
 	var t2 *Person = new(Person)
