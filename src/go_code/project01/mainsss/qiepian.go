@@ -72,8 +72,8 @@ func main()  {
 	var f6 = make([]int,10)
 	var f7 = make([]int,2)//如果定义的大小不够不会报错
 	fmt.Println(f5)
-	copy(f6,f5)
-	copy(f7,f5)
+	//copy(f6,f5)
+	//copy(f7,f5)
 	fmt.Println(f6)
 	fmt.Println(f7)
 
