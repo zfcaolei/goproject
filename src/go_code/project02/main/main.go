@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"go_code/project02/caiwu"
+)
 
-func main()  {
-	fmt.Println("鼎折覆餗")
+
+func main() {
+	caiwu.NewJizhang().Mentsdata()
+
+
 }
