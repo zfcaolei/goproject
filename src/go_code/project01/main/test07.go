@@ -4,23 +4,21 @@ import "fmt"
 
 type Money struct {
 	MoneyType int
-	Name int
-	Num int
+	Name      int
+	Num       int
 }
 
 type MoneyData struct {
 	Datas []Money
-
 }
 
+func main() {
 
+	var s2 []Money
 
+	//s1 := []Money{{23,23,23,}}
+	s1 := Money{213, 32, 32}
+	s2 = append(s2, s1)
 
-func main()  {
-
-	s1 := Money{1,2,3}
-
-	ca := MoneyData{}
-	cs := append(ca.Datas,s1)
-	fmt.Println(cs)
+	fmt.Println(s2)
 }
