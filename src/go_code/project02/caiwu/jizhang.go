@@ -7,7 +7,6 @@ type Jizhang struct {
 	logintype bool		//循环字段判断是否一直for循环
 	count float64		//总金额字段
 	key int    			//输入状态 1=>收支明细 2=>登记收入 3=>登记支出 4=>退出软件
-	ctype string		//判断支出和收入类别显示
 	Mondata []Money		//存储记账数据数组
 }
 
@@ -29,7 +28,6 @@ func (m Money)Zhichu(J *Jizhang)   {
 	fmt.Scanln(&m.Num)
 	J.Mondata = append(J.Mondata,m)
 	J.count -= m.Num
-	J.ctype = "支出"
 }
 
 
@@ -42,7 +40,7 @@ func (m Money)Shouru(J *Jizhang)  {
 	fmt.Scanln(&m.Num)
 	J.Mondata = append(J.Mondata,m)
 	J.count += m.Num
-	J.ctype = "收入"
+
 
 
 }
@@ -62,7 +60,13 @@ func (m Money)Listdata(j  *Jizhang)  {
 	}else {
 		fmt.Println("类别----------账号金额------------收支名称--------------------金额------------")
 		for _, v := range j.Mondata {
-			fmt.Println(j.ctype, "        ", j.count, "           ", v.Name, "                    ", v.Num)
+			var ctype string
+			if v.MoneyType == 1 {
+				ctype= "收入"
+			}else{
+				ctype ="支出"
+			}
+			fmt.Println(ctype, "        ", j.count, "           ", v.Name, "                    ", v.Num)
 		}
 	}
 }
