@@ -10,6 +10,7 @@ type Money struct {
 
 type MoneyData struct {
 	Datas []Money
+	sssss *Money
 }
 
 func main() {
