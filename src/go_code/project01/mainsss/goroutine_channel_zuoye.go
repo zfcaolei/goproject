@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 //开启协程写入管道2000条数据
 //开启8个协程 取出管道2000条数据
 
 func WriteMag(ChanWrite chan int)  {
-	for i:=1;i<=2000;i++{
+	for i:=1;i<=80000;i++{
 		ChanWrite <- i
 	}
 	//写入完毕关闭管道
@@ -21,8 +24,12 @@ func QuchuMag(ChanWrite chan int,ChanDeposit chan map[int]int,ChanExit chan bool
 			break
 		}
 		//定义一个map传入map管道
+		count := 0
 		mapdata := make(map[int]int)
-		mapdata[data] = data
+		for i:=1;i<=data;i++ {
+			count +=data
+		}
+		mapdata[data] = count
 		ChanDeposit <- mapdata
 	}
 		fmt.Println("取出完毕!!!!!!!!!!")
@@ -37,11 +44,11 @@ func main()  {
 
 	ChanWrite := make(chan int,200)
 
-	ChanDeposit := make(chan map[int]int,2000)
+	ChanDeposit := make(chan map[int]int,80000)
 
 	ChanExit := make(chan bool,4)
 
-
+	start := time.Now().Unix()
 	//开启协程写入数据到管道
 	go WriteMag(ChanWrite)
 
@@ -54,6 +61,8 @@ func main()  {
 		for i:=1;i<=8;i++ {
 			<-ChanExit
 		}
+		end := time.Now().Unix()
+		fmt.Println("使用协程消耗时间=",end-start)
 		close(ChanDeposit)
 	}()
 
